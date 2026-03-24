@@ -1,0 +1,22 @@
+services:
+  s2a-postgres:
+    container_name: inventory-postgres
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=inventory
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=db_inventory
+    volumes:
+      - inventory-postgres:/var/lib/postgresql/data
+    ports:
+      - '5434:5432'
+    networks:
+      - inventory-postgres
+
+networks:
+  inventory-postgres:
+    driver: bridge
+
+volumes:
+  inventory-postgres:
