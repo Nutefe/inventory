@@ -9,6 +9,7 @@ This is a simple inventory management system built using Spring Boot. It allows 
 - Spring Boot
 - Spring Data JPA
 - Postgres Database
+- Java 21 or higher
 ## Getting Started
 To get started with this project, follow the instructions below:
 1. Clone the repository:
