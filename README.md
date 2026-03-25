@@ -18,7 +18,7 @@ To get started with this project, follow the instructions below:
 3. Run docker compose to start and init database:
 ```docker compose up -d ```
 4. Build and run the application:
-```./mvnw spring-boot:run ```
+```./mvn spring-boot:run ```
 5. Access the application at `http://localhost:8787`.
 6. Use the API endpoints to manage your inventory. You can use tools like Postman or cURL to interact with the API.
 ## API Endpoints
