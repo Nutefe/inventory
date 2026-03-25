@@ -25,7 +25,6 @@ public class VehicleController {
 
     @PostMapping
     public VehicleDto create(@Valid @RequestBody CreateVehicleRequest req) {
-        System.out.println("Received create vehicle request: " + req);
         return service.create(req.dealerId(), req.model(), req.price(), req.status());
     }
 
