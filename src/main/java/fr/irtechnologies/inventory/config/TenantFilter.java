@@ -1,10 +1,10 @@
 package fr.irtechnologies.inventory.config;
 
+import fr.irtechnologies.inventory.exception.BadRequestException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.coyote.BadRequestException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -32,7 +32,7 @@ public class TenantFilter extends OncePerRequestFilter {
                 }
                 TenantContext.setTenantId(tenantId.trim());
             } else {
-                // admin endpoints: tenant optional (overall counts)
+                // For admin endpoints make tenant optional
                 if (tenantId != null && !tenantId.isBlank()) {
                     TenantContext.setTenantId(tenantId.trim());
                 }
@@ -41,6 +41,7 @@ public class TenantFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
         } finally {
             TenantContext.clear();
+
         }
     }
 }
